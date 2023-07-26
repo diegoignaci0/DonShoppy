@@ -1,0 +1,21 @@
+{%extends 'app/base.html'%}
+
+{%block contenido%}
+
+<div id="main">
+
+    {%load static%}
+    <article class="post">
+        <header>
+            <div class="title">
+                <h2><a href="#">Sobre Nosotros</a></h2>
+                <p>Como nace Don Shoppy</p>
+            </div>
+        </header>
+        <span class="image featured"><img src="{% static 'app/img/edificio.jpg'%}" alt="" /></span>
+        <p>Don Shoppy nace de la necesidad de crear un espacio para los residentes de la comunidad pueda disponer sus servicios o articulos varios que necesita vender o bien realizar un truque</p>
+        <p>A lo largo de los años nos hemos dado cuenta que los correos o grupos de whatsapp deben utilizarse para fines especificos o de emergencia por lo cual se crea esta pagina web donde los residentes pueden ofrecer sus articulos de segunda mano o nuevos, ademas de servicios que prestan</p>
+        <p>Acá podrás encontrar nuestras politicas y descargo de responsabilidades <a href="{%url 'about'%}"><b><u><strong>Ver</strong></u></b></a></p>
+    </article>
+</div>
+{%endblock%}

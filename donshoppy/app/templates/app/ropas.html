@@ -1,0 +1,53 @@
+{%extends 'app/base.html'%}
+
+{%block contenido%}
+
+<div id="main">
+    {%load humanize%}
+    {%for p in ropas %}
+	<!-- Shop Detail Start -->
+    <div class="container-fluid pb-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-5 mb-30">
+                <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner bg-light">
+                        <div class="carousel-item active">
+                            {%if p.imagen%}
+                            <img class="w-100 h-100" src="{{p.imagen.url}}" alt="Image">
+                            {%endif%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 h-auto mb-30">
+                <div class="h-100 bg-light p-30">
+                    <h3>{{p.nombre | title}}</h3>
+                    <h3 class="font-weight-semi-bold mb-4">${{p.precio | intcomma}}</h3>
+                    <p class="mb-4">{{p.marca | capfirst}}</p>
+					<p class="mb-4">Incluye:</p>
+					<p class="mb-4">Caja</p>
+					<p class="mb-4">Favor comunicarse con el Depto 405</p>
+                </div>
+            </div>
+        </div>
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="bg-light p-30">
+                    <div class="nav nav-tabs mb-4">
+                        <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Descripcion</a>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="tab-pane-1">
+                            <h4 class="mb-3">Descripcion de Producto</h4>
+                            <p>{{p.descripcion}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+
+
+{%endblock%}

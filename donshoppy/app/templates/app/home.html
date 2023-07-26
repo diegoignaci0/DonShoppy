@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		{%load static%}
+		<link rel="stylesheet" href="{% static 'app/css/main.css'%} ">
+		<!-- bootstrap css -->
+		<link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css'%}">
+		<!-- style css -->
+		<link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css'%}">
+		<!-- Responsive-->
+		<link rel="stylesheet" href="{% static 'app/css/responsive.css'%}">
+		<!-- fevicon -->
+		<link rel="icon" href="{% static 'app/img/fevicon.png'%}" type="{% static 'app/img/gif'%}" />
+		<!-- font css -->
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+		<!-- Scrollbar Custom CSS -->
+		<link rel="stylesheet" href="{% static 'app/css/jquery.mCustomScrollbar.min.css'%}">
+		<!-- Tweaks for older IEs-->
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	</head>
+	<body class="is-preload">
+		
+		<div class="coffee_section layout_padding">
+			<div class="container">
+			   <div class="row">
+				  <h1 class="coffee_taital">Destacados</h1>
+				  <div class="bulit_icon"><img src="{% static 'app/img/bulit-icon.png'%}"></div>
+			   </div>
+			</div>
+			<div class="coffee_section_2">
+			   <div id="main_slider" class="carousel slide" data-ride="carousel">
+				  <div class="carousel-inner">
+					 <div class="carousel-item active">
+						<div class="container-fluid">
+						   <div class="row">
+							  <div class="col-lg-3 col-md-6">
+								<div class="coffee_img"><img src="{% static 'app/img/zapa1.jpg'%}"></div>
+								 <h3 class="types_text">Calzado</h3>
+								 <div class="read_bt"><a href="{%url 'zapatillas'%}">Ver</a></div>
+							  </div>
+							  <div class="col-lg-3 col-md-6">
+								 <div class="coffee_img"><img src="{% static 'app/img/buzo1.jpg'%}"></div>
+								 <h3 class="types_text">Vestuario</h3>
+								 <div class="read_bt"><a href="{%url 'ropas'%}">Ver</a></div>
+							  </div>
+							  <div class="col-lg-3 col-md-6">
+								 <div class="coffee_img"><img src="{% static 'app/img/porta3.jpg'%}"></div>
+								 <h3 class="types_text">Todo en Don Shoppy</h3>
+								 <div class="read_bt"><a href="{%url 'producto'%}">Ver</a></div>
+							  </div>
+							  <div class="col-lg-3 col-md-6">
+								 <div class="coffee_img"><img src="{% static 'app/img/mochila.webp'%}"></div>
+								 <h3 class="types_text">Mochilas</h3>
+								 <div class="read_bt"><a href="{%url 'mochilas'%}">Ver</a></div>
+							  </div>
+							  <div class="col-lg-3 col-md-6">
+								<div class="coffee_img"><img src="{% static 'app/img/outdoor.webp'%}"></div>
+								<h3 class="types_text">Outdoor</h3>
+								<div class="read_bt"><a href="{%url 'outdoors'%}">Ver</a></div>
+							 </div>
+							 <div class="col-lg-3 col-md-6">
+								<div class="coffee_img"><img src="{% static 'app/img/servicio.webp'%}"></div>
+								<h3 class="types_text">Servicios</h3>
+								<div class="read_bt"><a href="{%url 'servicios'%}">Ver</a></div>
+							 </div>
+							 <div class="col-lg-3 col-md-6">
+								<div class="coffee_img"><img src="{% static 'app/img/herramientas.webp'%}"></div>
+								<h3 class="types_text">Herramientas</h3>
+								<div class="read_bt"><a href="{%url 'herramientas'%}">Ver</a></div>
+							 </div>
+							 <div class="col-lg-3 col-md-6">
+								<div class="coffee_img"><img src="{% static 'app/img/abarrotes.webp'%}"></div>
+								<h3 class="types_text">Abarrotes</h3>
+								<div class="read_bt"><a href="{%url 'abarrotes'%}">Ver</a></div>
+							 </div>
+						   </div>
+						</div>
+					 </div>
+				  </div>
+			   </div>
+			</div>
+		 </div>
+
+		<div id="wrapper">
+
+			<header id="header">
+				<h1><a href="{%url 'home'%}">Don Shoppy</a></h1>
+				<nav class="links">
+					<ul>
+						<li><a href="{%url 'contacto'%}">Contacto</a></li>
+						<li><a href="{%url 'sobreNosotros'%}">Sobre Nosotros</a></li>
+						
+						{%if user.is_authenticated%}
+							<li>
+								<li><a href="{%url 'agregar_producto'%}">Publicar producto</a></li>
+								<li><a href="{%url 'listar_producto'%}">Publicaciones</a></li>
+							</li>
+							<li>
+								<a href="#">@{{user.username}}</a>
+								<li><a href="{%url 'logout' %}">cerrar sesion</a></li>
+								
+							</li>
+						{%else%}
+							<li>
+								<a href="{%url 'login' %}">inciar sesion</a> |
+								<a href="{% url 'registro'%}">registrate</a>
+							</li>
+						{%endif%}
+					</ul>
+				</nav>
+				<nav class="main">
+					<ul>
+						<li class="search">
+							<a class="fa-search" href="#search">Buscar</a>
+							<form id="search" method="get" action="#">
+								<input type="text" name="query" placeholder="Search" />
+							</form>
+						</li>
+						<li class="menu">
+							<a class="fa-bars" href="ingreso.html">Ingresar</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			
+
+		</div>
+
+  		<!-- copyright section start -->
+		<div class="copyright_section">
+			<div class="container">
+			   <div class="row">
+				  <div class="col-lg-6 col-sm-12">
+					 <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a></p>
+				  </div>
+				  <div class="col-lg-6 col-sm-12">
+					 <div class="footer_social_icon">
+						<ul>
+						   <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						   <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						   <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+						   <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						</ul>
+					 </div>
+				  </div>
+			   </div>
+			</div>
+		 </div>
+
+		 
+<div id="main">
+    {%load humanize%}
+    {%for p in producto %}
+		<!-- Shop Detail Start -->
+		<div class="container-fluid pb-5">
+			<div class="row px-xl-5">
+				<div class="col-lg-5 mb-30">
+					<div id="product-carousel" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner bg-light">
+							<div class="carousel-item active">
+								{%if p.imagen%}
+								<img class="w-100 h-100" src="{{p.imagen.url}}" alt="Image">
+								{%endif%}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-7 h-auto mb-30">
+					<div class="h-100 bg-light p-30">
+						<h3>{{p.nombre | title}}</h3>
+						<h3 class="font-weight-semi-bold mb-4">${{p.precio | intcomma}}</h3>
+						<p class="mb-4">{{p.marca | capfirst}}</p>
+						<p class="mb-4">Incluye:</p>
+						<p class="mb-4">Caja</p>
+						<p class="mb-4">Favor comunicarse con el Depto 405</p>
+					</div>
+				</div>
+			</div>
+			<div class="row px-xl-5">
+				<div class="col">
+					<div class="bg-light p-30">
+						<div class="nav nav-tabs mb-4">
+							<a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Descripcion</a>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane fade show active" id="tab-pane-1">
+								<h4 class="mb-3">Descripcion de Producto</h4>
+								<p>{{p.descripcion}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{%endfor%}
+		<!-- copyright section end -->
+
+		<script src="app/js/jquery.min.js"></script>
+		<script src="app/js/browser.min.js"></script>
+		<script src="app/js/breakpoints.min.js"></script>
+		<script src="app/js/util.js"></script>
+		<script src="app/js/main.js"></script>
+		<!-- copyright section end -->
+      	<!-- Javascript files-->
+      	<script src="app/js/jquery.min.js"></script>
+      	<script src="app/js/popper.min.js"></script>
+      	<script src="app/js/bootstrap.bundle.min.js"></script>
+      	<script src="app/js/jquery-3.0.0.min.js"></script>
+      	<script src="app/js/plugin.js"></script>
+      	<!-- sidebar -->
+      	<script src="app/js/jquery.mCustomScrollbar.concat.min.js"></script>
+      	<script src="app/js/custom.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		{%if messages%}
+			{%for m in messages%}
+				<script>
+				Swal.fire({
+					"title":"Felicitaciones",
+					"text":"{{m}}",
+					"icon":"success"
+				})
+			</script>
+			{%endfor%}
+		{% endif %}
+	</body>
+</html>

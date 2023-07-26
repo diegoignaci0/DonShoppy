@@ -1,0 +1,20 @@
+instalar django
+--pip install django
+
+crear proyecto
+--django-admin startproject donshoppy
+
+importar libreria para subir imagenes
+--crear un archivo llamado "requirements.txt" en la ruta del proyecto e insertar el siguiente codigo
+--django == 3.1
+--pillow
+
+debemos instalar el plugin sqlite
+
+--DEBEMOS EJECUTAR EL ARCHIVO REQUERIMENTS con el comando pip install -r requirements.txt
+
+
+credenciales:
+Administrador
+admin
+

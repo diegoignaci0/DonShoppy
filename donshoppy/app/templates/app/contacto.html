@@ -1,0 +1,41 @@
+{%extends 'app/base.html'%}
+
+{%block contenido%}
+<div id="wrapper">
+  
+
+        <div class="container-fluid bg-grey">
+            <h2 class="text-center">Contacto</h2>
+            <div class="row">
+              <div class="col-sm-5">
+                <p>Las consultas se responderan en las proximas 24 Horas</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Santiago Centro</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +56912345678</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> contacto@shoppy.com</p>
+              </div>
+              <div class="col-sm-7">
+                <form action="" class="formulario_contacto" method="post">
+                {% csrf_token %}
+                {{ form }}
+                
+                <div class="row">
+                  <div class="col-sm-12 form-group">
+                    <button class="btn btn-default pull-right" type="submit">Enviar</button>
+                    
+                  </div>
+                </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+          
+</div>
+<script src="app/js/jquery.min.js"></script>
+<script src="app/js/browser.min.js"></script>
+<script src="app/js/breakpoints.min.js"></script>
+<script src="app/js/util.js"></script>
+<script src="app/js/main.js"></script>
+
+
+{%endblock%}
